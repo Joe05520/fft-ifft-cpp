@@ -13,7 +13,7 @@ jobs:
             compiler: clang++
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7.0.1
       - name: Build and test C++ FFT/IFFT
         run: make CXX=${{ matrix.compiler }} all test
       - name: Run ideal-channel OFDM examples
