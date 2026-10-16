@@ -1,0 +1,23 @@
+name: C++ build and numerical tests
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        include:
+          - os: ubuntu-latest
+            compiler: g++
+          - os: macos-latest
+            compiler: clang++
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and test C++ FFT/IFFT
+        run: make CXX=${{ matrix.compiler }} all test
+      - name: Run ideal-channel OFDM examples
+        run: |
+          ./bin/ofdm all smoke/default
+          ./bin/ofdm 3 smoke/N3
+          ./bin/ofdm 127 smoke/N127

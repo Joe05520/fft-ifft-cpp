@@ -1,0 +1,4 @@
+index,matlab_fft_re,matlab_fft_im,fft_abs_error,matlab_ifft_re,matlab_ifft_im,ifft_abs_error
+0,3,3,0,1,1,0
+1,0,0,6.56540528378817e-16,0,0,2.18846842792939e-16
+2,0,0,1.29473140982779e-15,0,0,4.31577136609263e-16
